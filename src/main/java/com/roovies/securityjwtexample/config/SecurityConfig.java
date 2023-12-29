@@ -29,7 +29,6 @@ import java.util.List;
 @Configuration
 @RequiredArgsConstructor
 @EnableWebSecurity
-@ComponentScan(basePackages = {"com.roovies.securityjwtexample.security.jwt"})
 public class SecurityConfig {
     private final JwtProvider jwtProvider;
 
