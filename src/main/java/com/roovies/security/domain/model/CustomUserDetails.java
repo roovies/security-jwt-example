@@ -1,4 +1,4 @@
-package com.roovies.security;
+package com.roovies.security.domain.model;
 
 import com.roovies.member.domain.entity.Member;
 import lombok.RequiredArgsConstructor;

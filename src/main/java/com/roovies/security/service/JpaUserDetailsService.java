@@ -2,7 +2,7 @@ package com.roovies.security.service;
 
 import com.roovies.member.domain.entity.Member;
 import com.roovies.member.domain.repository.MemberRepository;
-import com.roovies.security.CustomUserDetails;
+import com.roovies.security.domain.model.CustomUserDetails;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
