@@ -4,6 +4,7 @@ import com.roovies.security.jwt.JwtAuthenticationFilter;
 import com.roovies.security.jwt.JwtProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -28,6 +29,7 @@ import java.util.List;
 @Configuration
 @RequiredArgsConstructor
 @EnableWebSecurity
+@ComponentScan(basePackages = {"com.roovies.security.jwt"})
 public class SecurityConfig {
     private final JwtProvider jwtProvider;
 
