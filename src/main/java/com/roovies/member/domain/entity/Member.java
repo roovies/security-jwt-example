@@ -27,6 +27,7 @@ public class Member {
     private String name;
 
     @OneToMany(mappedBy = "member", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @Builder.Default
     private List<Authority> roles = new ArrayList<>();
 
     public void setRoles(List<Authority> role) {
