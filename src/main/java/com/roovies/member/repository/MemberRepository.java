@@ -1,4 +1,4 @@
-package com.roovies.member.domain.repository;
+package com.roovies.member.repository;
 
 import com.roovies.member.domain.entity.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
