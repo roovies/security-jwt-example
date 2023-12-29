@@ -1,14 +1,14 @@
 package com.roovies.member.domain.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Getter
+@Builder
+@AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Authority {
     @Id
