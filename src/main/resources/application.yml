@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/security?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: root
+    password: 3867
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        default_batch_fetch_size: 1000
+    hibernate:
+      ddl-auto: create
+
+  jwt:
+    secret:
+      key: 940761a93cfa68f4895d3d626e4437b526759a519538268a66a6144874b8fdc78e18c74c23032a1229bbd7526987507e76e66b02db87aaa64b271845c664ab84
