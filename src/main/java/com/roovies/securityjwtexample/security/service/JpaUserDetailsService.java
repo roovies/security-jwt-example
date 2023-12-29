@@ -1,8 +1,8 @@
-package com.roovies.security.service;
+package com.roovies.securityjwtexample.security.service;
 
-import com.roovies.member.domain.entity.Member;
-import com.roovies.member.repository.MemberRepository;
-import com.roovies.security.domain.model.CustomUserDetails;
+import com.roovies.securityjwtexample.member.domain.entity.Member;
+import com.roovies.securityjwtexample.member.repository.MemberRepository;
+import com.roovies.securityjwtexample.security.domain.model.CustomUserDetails;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

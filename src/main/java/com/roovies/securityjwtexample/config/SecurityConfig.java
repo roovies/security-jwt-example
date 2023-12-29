@@ -1,7 +1,7 @@
-package com.roovies.config;
+package com.roovies.securityjwtexample.config;
 
-import com.roovies.security.jwt.JwtAuthenticationFilter;
-import com.roovies.security.jwt.JwtProvider;
+import com.roovies.securityjwtexample.security.jwt.JwtAuthenticationFilter;
+import com.roovies.securityjwtexample.security.jwt.JwtProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -29,7 +29,7 @@ import java.util.List;
 @Configuration
 @RequiredArgsConstructor
 @EnableWebSecurity
-@ComponentScan(basePackages = {"com.roovies.security.jwt"})
+@ComponentScan(basePackages = {"com.roovies.securityjwtexample.security.jwt"})
 public class SecurityConfig {
     private final JwtProvider jwtProvider;
 
@@ -60,7 +60,7 @@ public class SecurityConfig {
                 // 2. 조건별로 요청 허용/제한 설정
                 .authorizeRequests()
                 // 2-1. 회원가입과 로그인 요청은 모두 승인
-                .antMatchers("/register", "login").permitAll()
+                .antMatchers("/register", "/login").permitAll()
                 // '/admin'으로 시작하는 요청은 ADMIN 권한이 있는 유저에게만 허용
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 // '/user'로 시작하는 요청은 USER 권한이 있는 유저에게만 허용

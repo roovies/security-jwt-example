@@ -1,11 +1,11 @@
-package com.roovies.member.service;
+package com.roovies.securityjwtexample.member.service;
 
-import com.roovies.member.domain.dto.MemberCreateRequest;
-import com.roovies.member.domain.dto.MemberCreateResponse;
-import com.roovies.member.domain.entity.Authority;
-import com.roovies.member.domain.entity.Member;
-import com.roovies.member.repository.MemberRepository;
-import com.roovies.security.jwt.JwtProvider;
+import com.roovies.securityjwtexample.member.domain.dto.MemberCreateRequest;
+import com.roovies.securityjwtexample.member.domain.dto.MemberCreateResponse;
+import com.roovies.securityjwtexample.member.domain.entity.Authority;
+import com.roovies.securityjwtexample.member.domain.entity.Member;
+import com.roovies.securityjwtexample.member.repository.MemberRepository;
+import com.roovies.securityjwtexample.security.jwt.JwtProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.crypto.password.PasswordEncoder;

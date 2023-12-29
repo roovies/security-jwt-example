@@ -1,6 +1,6 @@
-package com.roovies.security.domain.model;
+package com.roovies.securityjwtexample.security.domain.model;
 
-import com.roovies.member.domain.entity.Member;
+import com.roovies.securityjwtexample.member.domain.entity.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

@@ -1,7 +1,7 @@
-package com.roovies.member.domain.dto;
+package com.roovies.securityjwtexample.member.domain.dto;
 
-import com.roovies.member.domain.entity.Authority;
-import com.roovies.member.domain.entity.Member;
+import com.roovies.securityjwtexample.member.domain.entity.Authority;
+import com.roovies.securityjwtexample.member.domain.entity.Member;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

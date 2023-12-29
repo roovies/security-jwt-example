@@ -1,4 +1,4 @@
-package com.roovies.member.domain.dto;
+package com.roovies.securityjwtexample.member.domain.dto;
 
 import lombok.Getter;
 import lombok.Setter;

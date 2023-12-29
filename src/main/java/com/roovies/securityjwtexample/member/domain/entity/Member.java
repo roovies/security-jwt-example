@@ -1,4 +1,4 @@
-package com.roovies.member.domain.entity;
+package com.roovies.securityjwtexample.member.domain.entity;
 
 import lombok.*;
 

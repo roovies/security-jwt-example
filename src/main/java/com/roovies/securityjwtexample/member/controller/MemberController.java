@@ -1,9 +1,9 @@
-package com.roovies.member.controller;
+package com.roovies.securityjwtexample.member.controller;
 
-import com.roovies.member.domain.dto.MemberCreateRequest;
-import com.roovies.member.domain.dto.MemberCreateResponse;
-import com.roovies.member.repository.MemberRepository;
-import com.roovies.member.service.MemberService;
+import com.roovies.securityjwtexample.member.domain.dto.MemberCreateRequest;
+import com.roovies.securityjwtexample.member.domain.dto.MemberCreateResponse;
+import com.roovies.securityjwtexample.member.repository.MemberRepository;
+import com.roovies.securityjwtexample.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

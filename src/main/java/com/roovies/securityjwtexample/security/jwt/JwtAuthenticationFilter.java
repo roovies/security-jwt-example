@@ -1,4 +1,4 @@
-package com.roovies.security.jwt;
+package com.roovies.securityjwtexample.security.jwt;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;

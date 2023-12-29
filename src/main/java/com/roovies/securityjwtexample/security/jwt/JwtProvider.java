@@ -1,7 +1,8 @@
-package com.roovies.security.jwt;
+package com.roovies.securityjwtexample.security.jwt;
 
-import com.roovies.member.domain.entity.Authority;
-import com.roovies.security.service.JpaUserDetailsService;
+import com.roovies.securityjwtexample.member.domain.entity.Authority;
+import com.roovies.securityjwtexample.security.service.JpaUserDetailsService;
+import com.roovies.securityjwtexample.security.service.JpaUserDetailsService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;

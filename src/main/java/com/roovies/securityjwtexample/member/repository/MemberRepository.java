@@ -1,6 +1,6 @@
-package com.roovies.member.repository;
+package com.roovies.securityjwtexample.member.repository;
 
-import com.roovies.member.domain.entity.Member;
+import com.roovies.securityjwtexample.member.domain.entity.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import javax.transaction.Transactional;
