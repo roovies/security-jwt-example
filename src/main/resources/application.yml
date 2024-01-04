@@ -15,6 +15,10 @@ spring:
     hibernate:
       ddl-auto: create
 
+  redis:
+    host: localhost
+    port: 6379
+
 jwt:
   secret:
     key: 940761a93cfa68f4895d3d626e4437b526759a519538268a66a6144874b8fdc78e18c74c23032a1229bbd7526987507e76e66b02db87aaa64b271845c664ab84
