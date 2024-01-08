@@ -3,8 +3,8 @@ package com.roovies.securityjwtexample.member.service;
 import com.roovies.securityjwtexample.member.domain.dto.MemberCreateRequest;
 import com.roovies.securityjwtexample.member.domain.dto.MemberCreateResponse;
 import com.roovies.securityjwtexample.member.domain.dto.TokenDTO;
-import com.roovies.securityjwtexample.member.domain.entity.Authority;
 import com.roovies.securityjwtexample.member.domain.entity.Member;
+import com.roovies.securityjwtexample.member.domain.enums.MemberRole;
 import com.roovies.securityjwtexample.member.repository.MemberRepository;
 import com.roovies.securityjwtexample.security.jwt.JwtProvider;
 import com.roovies.securityjwtexample.security.jwt.RefreshToken;
@@ -15,7 +15,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.Collections;
 import java.util.UUID;
 
 @Service
@@ -43,9 +42,9 @@ public class MemberService {
                 .email(member.getEmail())
                 .name(member.getEmail())
                 .nickname(member.getNickname())
-                .roles(member.getRoles())
+                .memberRole(member.getMemberRole())
                 .token(TokenDTO.builder()
-                        .access_token(jwtProvider.createToken(member.getEmail(), member.getRoles()))
+                        .access_token(jwtProvider.createToken(member.getEmail(), member.getMemberRole()))
                         .refresh_token(member.getRefreshToken())
                         .build())
                 .build();
@@ -58,9 +57,8 @@ public class MemberService {
                     .password(passwordEncoder.encode(request.getPassword()))
                     .name(request.getName())
                     .nickname(request.getNickname())
+                    .memberRole(MemberRole.ROLE_USER)
                     .build();
-
-            member.setRoles(Collections.singletonList(Authority.builder().name("ROLE_USER").build()));
 
             memberRepository.save(member);
         } catch (Exception e) {
@@ -120,7 +118,7 @@ public class MemberService {
         RefreshToken refreshToken = validRefreshToken(member, token.getRefresh_token());
         if (refreshToken != null) {
             return TokenDTO.builder()
-                    .access_token(jwtProvider.createToken(email, member.getRoles()))
+                    .access_token(jwtProvider.createToken(email, member.getMemberRole()))
                     .refresh_token(refreshToken.getRefreshToken())
                     .build();
         } else {

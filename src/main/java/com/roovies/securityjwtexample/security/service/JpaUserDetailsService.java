@@ -9,6 +9,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class JpaUserDetailsService implements UserDetailsService {
@@ -19,6 +21,11 @@ public class JpaUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Member member = memberRepository.findByEmail(username).orElseThrow(
                 () -> new UsernameNotFoundException("유효하지 않은 회원입니다!"));
-        return new CustomUserDetails(member);
+        return new CustomUserDetails(
+                member.getEmail(),
+                member.getPassword(),
+                member.getId(),
+                List.of(member.getMemberRole().name())
+        );
     }
 }

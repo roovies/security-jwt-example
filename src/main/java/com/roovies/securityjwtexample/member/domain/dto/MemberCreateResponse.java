@@ -1,14 +1,11 @@
 package com.roovies.securityjwtexample.member.domain.dto;
 
-import com.roovies.securityjwtexample.member.domain.entity.Authority;
 import com.roovies.securityjwtexample.member.domain.entity.Member;
+import com.roovies.securityjwtexample.member.domain.enums.MemberRole;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Getter
 @Builder
@@ -24,7 +21,7 @@ public class MemberCreateResponse {
 
     private String name;
 
-    private List<Authority> roles = new ArrayList<>();
+    private MemberRole memberRole;
 
     private TokenDTO token;
 
@@ -33,6 +30,6 @@ public class MemberCreateResponse {
         this.email = member.getEmail();
         this.nickname = member.getNickname();
         this.name = member.getName();
-        this.roles = member.getRoles();
+        this.memberRole = member.getMemberRole();
     }
 }

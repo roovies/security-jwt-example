@@ -1,6 +1,8 @@
 package com.roovies.securityjwtexample.member.domain.entity;
 
+import com.roovies.securityjwtexample.member.domain.enums.MemberRole;
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -10,7 +12,7 @@ import java.util.List;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder
-@AllArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Member {
 
     @Id
@@ -28,14 +30,9 @@ public class Member {
 
     private String refreshToken;
 
-    @OneToMany(mappedBy = "member", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @Builder.Default
-    private List<Authority> roles = new ArrayList<>();
-
-    public void setRoles(List<Authority> role) {
-        this.roles = role;
-        role.forEach(o -> o.setMember(this));
-    }
+    @Enumerated(EnumType.STRING)
+    @Column(name = "role", nullable = false)
+    private MemberRole memberRole;
 
     public void setRefreshToken(String refreshToken) {
         this.refreshToken = refreshToken;

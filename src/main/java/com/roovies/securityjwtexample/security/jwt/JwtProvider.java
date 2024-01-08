@@ -1,7 +1,6 @@
 package com.roovies.securityjwtexample.security.jwt;
 
-import com.roovies.securityjwtexample.member.domain.entity.Authority;
-import com.roovies.securityjwtexample.security.service.JpaUserDetailsService;
+import com.roovies.securityjwtexample.member.domain.enums.MemberRole;
 import com.roovies.securityjwtexample.security.service.JpaUserDetailsService;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
@@ -40,9 +39,9 @@ public class JwtProvider {
     }
 
     // 토큰 생성
-    public String createToken(String email, List<Authority> roles) {
+    public String createToken(String email, MemberRole memberRole) {
         Claims claims = Jwts.claims().setSubject(email);
-        claims.put("roles", roles);
+        claims.put("roles", memberRole);
         Date now = new Date();
         return Jwts.builder()
                 .setClaims(claims)
