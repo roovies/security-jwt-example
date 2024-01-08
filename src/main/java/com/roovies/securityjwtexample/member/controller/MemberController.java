@@ -2,6 +2,7 @@ package com.roovies.securityjwtexample.member.controller;
 
 import com.roovies.securityjwtexample.member.domain.dto.MemberCreateRequest;
 import com.roovies.securityjwtexample.member.domain.dto.MemberCreateResponse;
+import com.roovies.securityjwtexample.member.domain.dto.TokenDTO;
 import com.roovies.securityjwtexample.member.repository.MemberRepository;
 import com.roovies.securityjwtexample.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
@@ -19,6 +20,11 @@ public class MemberController {
     @PostMapping(value = "/login")
     public ResponseEntity<MemberCreateResponse> login(@RequestBody MemberCreateRequest request) throws Exception {
         return new ResponseEntity<>(memberService.login(request), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/refresh")
+    public ResponseEntity<TokenDTO> refresh(@RequestBody TokenDTO token) throws Exception {
+        return new ResponseEntity<>(memberService.refreshAccessToken(token), HttpStatus.OK);
     }
 
     @PostMapping(value = "/register")

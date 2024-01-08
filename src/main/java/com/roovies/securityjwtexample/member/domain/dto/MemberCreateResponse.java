@@ -26,7 +26,7 @@ public class MemberCreateResponse {
 
     private List<Authority> roles = new ArrayList<>();
 
-    private String token;
+    private TokenDTO token;
 
     public MemberCreateResponse(Member member){
         this.id = member.getId();

@@ -3,10 +3,7 @@ package com.roovies.securityjwtexample.security.jwt;
 import com.roovies.securityjwtexample.member.domain.entity.Authority;
 import com.roovies.securityjwtexample.security.service.JpaUserDetailsService;
 import com.roovies.securityjwtexample.security.service.JpaUserDetailsService;
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jws;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -31,7 +28,9 @@ public class JwtProvider {
     private Key secretKey;
 
     // 만료시간 : 1Hour
-    private final long exp = 1000L * 60 * 60;
+//    private final long exp = 1000L * 60 * 60;
+    // 테스트용 만료시간 : 1분
+    private final long exp = 1000L * 60;
 
     private final JpaUserDetailsService userDetailsService;
 
@@ -55,6 +54,15 @@ public class JwtProvider {
 
     // 토큰에 담겨져있는 유저 email 획득
     public String getEmail(String token) {
+        // 만료된 토큰에 대해 parseClaimsJws() 메소드를 수행하면 io.jsonwebtoken.ExpiredJwtException이 발생한다.
+        try {
+            Jwts.parserBuilder().setSigningKey(secretKey).build().parseClaimsJws(token).getBody().getSubject();
+        } catch (ExpiredJwtException e) {
+            e.printStackTrace();
+            return e.getClaims().getSubject();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         //createToken() 메소드를 보면, email 정보가 subject에 저장되고 있음
         return Jwts.parserBuilder().setSigningKey(secretKey).build().parseClaimsJws(token).getBody().getSubject();
     }
