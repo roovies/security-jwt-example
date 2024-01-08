@@ -23,10 +23,10 @@ public class RedisConfig {
     }
 
     @Bean
-    public RedisTemplate<String, Object> redisTemplate() {
+    public RedisTemplate<?, ?> redisTemplate() {
         // RedisTemplate : Redis 데이터를 쉽게 조작하고 관리할 수 있도록 Spring에서 제공
         //                 즉, RedisTemplate을 이용하여 Redis에 CRUD 작업 수행
-        RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
+        RedisTemplate<?, ?> redisTemplate = new RedisTemplate<>();
 
         // Key, Value 직렬화(Serialize)
         // 이걸 수행하지 않으면, Spring에서는 조회할 때 값이 정상적으로 보이지만, redis-cli로 보면 \xac\xed\x00 같은 값들이 붙는다.
